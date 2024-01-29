@@ -1,0 +1,47 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+main{
+    background-color: #191820;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#carosello{
+     width: 60%;
+     height: 50%;
+     margin: 0 auto;
+     display: flex;
+}
+
+#carosello figure{
+    width: 100%;
+    height: 90%;
+}
+
+#carosello figure img{
+    object-fit: cover;
+    width: 100%;
+   height: 100%;
+   object-position: center;
+}
+#laterale{
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    height: 100%;
+}
+
+#laterale .col{
+    height: calc(100% / 5);
+    
+}
+#laterale .col figure {
+    height: calc(100% / 5);
+    opacity: 0.5;
+}
+
+
