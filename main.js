@@ -70,5 +70,19 @@ const slides = [
     })
 
     frecciaGiu.addEventListener(`click`, function(){
-        
+        const immaginePrincipaleH2 = immaginePrincipale.querySelector(`h2`)
+        const immaginePrincipaleP = immaginePrincipale.querySelector('p')
+        const immaginePrincipaleImg = immaginePrincipale.querySelector(`img`)
+
+        if(posizioneImmagine === slides.length - 1){
+            posizioneImmagine = 0
+            immaginePrincipaleImg.src= `./${slides[posizioneImmagine].image}`
+            immaginePrincipaleH2.innerHTML = slides [posizioneImmagine].title
+            immaginePrincipaleP.innerHTML = slides [posizioneImmagine].text
+        }else{
+            posizioneImmagine++
+            immaginePrincipaleImg.src= `./${slides[posizioneImmagine].image}`
+            immaginePrincipaleH2.innerHTML = slides [posizioneImmagine].title
+            immaginePrincipaleP.innerHTML = slides [posizioneImmagine].text
+        }
     })
