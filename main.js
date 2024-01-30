@@ -23,11 +23,52 @@ const slides = [
     ];
 
     let immaginePrincipale= document.querySelector(`#carosello figure`)
+    const lateraleImg= document.querySelector('#carosello #laterale')
+    const frecciaSu =document.querySelector(`.fa-chevron-up`)
+    const frecciaGiu =document.querySelector('.fa-chevron-down')
+    let posizioneImmagine = 0
+
     immaginePrincipale.innerHTML =`
-    <img src='./${slides[0].image}' alt="">
-    <div>
-    <h2>${slides[0].title}</h2>
-    <p>${slides[0].text}</p>
-    </div>
+     <img src='./${slides[posizioneImmagine].image}' alt="">
+     <div>
+     <h2>${slides[posizioneImmagine].title}</h2>
+     <p>${slides[posizioneImmagine].text}</p>
+     </div>
     
     `
+    slides.forEach((element,index) => {
+        const divLaterale= document.createElement(`div`)
+        divLaterale.className = `col`
+
+        const figureLaterale= document.createElement(`figure`)
+        
+        const imgLaterale = new Image ()
+        imgLaterale.src = `./${element.image}`
+
+        divLaterale.append(figureLaterale)
+        figureLaterale.append(imgLaterale)
+
+        lateraleImg.append(divLaterale)
+    })
+
+    frecciaSu.addEventListener(`click`, function(){
+        const immaginePrincipaleH2 = immaginePrincipale.querySelector(`h2`)
+        const immaginePrincipaleP = immaginePrincipale.querySelector('p')
+        const immaginePrincipaleImg = immaginePrincipale.querySelector(`img`)
+
+        if(posizioneImmagine === 0){
+            posizioneImmagine = slides.length - 1
+            immaginePrincipaleImg.src= `./${slides[posizioneImmagine].image}`
+            immaginePrincipaleH2.innerHTML = slides [posizioneImmagine].title
+            immaginePrincipaleP.innerHTML = slides [posizioneImmagine].text
+        }else{
+            posizioneImmagine--
+            immaginePrincipaleImg.src= `./${slides[posizioneImmagine].image}`
+            immaginePrincipaleH2.innerHTML = slides [posizioneImmagine].title
+            immaginePrincipaleP.innerHTML = slides [posizioneImmagine].text
+        }
+    })
+
+    frecciaGiu.addEventListener(`click`, function(){
+        
+    })
